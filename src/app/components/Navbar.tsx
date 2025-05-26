@@ -5,13 +5,10 @@ import React from "react";
 import { github } from "../utils/icons";
 import ThemeDropdown from "./ThemeDropdown/ThemeDropdown";
 import SearchDialog from "./SearchDialog/SearchDialog";
-import { useGlobalContext } from "../context/globalContext";
+// import { useGlobalContext } from "../context/globalContext";
 
 function Navbar() {
     const router = useRouter();
-    const { state } = useGlobalContext();
-
-    console.log("🚀 ~ Navbar.tsx:14 ~ Navbar ~ state:", state);
 
     return (
         <div className="w-full py-4 flex items-center justify-between">
