@@ -4,19 +4,20 @@ import {
     clearIcon,
     cloudyIcon,
     drizzleIcon,
-    nagivateIcon,
+    navigateIcon,
     rainIcon,
     snowIcon,
     windIcon,
 } from "@/app/utils/icons";
 import { kelvinToCelsius } from "@/app/utils/misc";
+import { Skeleton } from "@/components/ui/skeleton";
 import moment from "moment";
 import { useEffect, useState } from "react";
 
 function Temperature() {
     // State
-    const [localTime, setLocalTime] = useState<String>("");
-    const [currentDay, setCurrentDay] = useState<String>("");
+    const [localTime, setLocalTime] = useState<string>("");
+    const [currentDay, setCurrentDay] = useState<string>("");
 
     const { forecast } = useGlobalContext();
 
@@ -45,7 +46,7 @@ function Temperature() {
     const maxTemperature = kelvinToCelsius(main?.temp_max || 0);
 
     if (!forecast || !weather) {
-        return <div>Loading...</div>;
+        return <Skeleton className="h-[25rem] w-full" />;
     }
 
     const { main: weatherMain, description: weatherDescription } = weather[0];
@@ -80,7 +81,7 @@ function Temperature() {
             </p>
             <p className="pt-2 font-bold flex gap-1">
                 <span>{name}</span>
-                <span>{nagivateIcon}</span>
+                <span>{navigateIcon}</span>
             </p>
             <p className="py-10 text-9xl font-bol self-center">{temperature}°</p>
 

@@ -3,8 +3,8 @@ const defaultStates = [
         name: "Vietnam",
         country: "VN",
         state: "Hà Nội",
-        lat: 21.0285,
-        lon: 105.8542
+        lat: 21.02818,
+        lon: 105.8333
     },
     {
         name: "United States",
