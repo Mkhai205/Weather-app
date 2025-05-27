@@ -51,7 +51,7 @@ function Temperature() {
 
     const { main: weatherMain, description: weatherDescription } = weather[0];
 
-    const getIcon = () => {
+    const getIcon = (weatherMain: string) => {
         switch (weatherMain) {
             case "Drizzle":
                 return drizzleIcon;
@@ -87,7 +87,7 @@ function Temperature() {
 
             <div>
                 <div>
-                    <span>{getIcon()}</span>
+                    <span>{getIcon(weatherMain)}</span>
                     <p className="pt-2 capitalize text-lg font-medium">{weatherDescription}</p>
                 </div>
                 <p className="flex items-center gap-2 pt-2 text-sm text-muted-foreground">
