@@ -4,6 +4,8 @@ import {
     CloudSun,
     Cloudy,
     Command,
+    Droplets,
+    Eye,
     Github,
     Navigation,
     Search,
@@ -11,6 +13,7 @@ import {
     SunMedium,
     Sunrise,
     Sunset,
+    Thermometer,
     ThermometerSun,
     Users,
     Wind,
@@ -29,5 +32,8 @@ export const cloudyIcon = <Cloudy size={20} />;
 export const windIcon = <Wind size={20} />;
 export const sunsetIcon = <Sunset size={20} />;
 export const sunriseIcon = <Sunrise size={20} />;
-export const uvIndexIcon = <SunMedium  size={20} />;
-export const populationIcon = <Users  size={20} />;
+export const uvIndexIcon = <SunMedium size={20} />;
+export const populationIcon = <Users size={20} />;
+export const feelsLikeIcon = <Thermometer size={20} />;
+export const humidityIcon = <Droplets size={20} />;
+export const visibilityIcon = <Eye size={20} />;

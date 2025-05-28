@@ -16,7 +16,7 @@ function Population() {
 
     return (
         <div
-            className="uv p-4 h-[12rem] border rounded-lg 
+            className="population p-4 h-[12rem] border rounded-lg
                         flex flex-col justify-between gap-4 dark:bg-dark-grey shadow-sm dark:shadow-none"
         >
             <h2 className=" flex gap-2 font-medium">{populationIcon} Population</h2>{" "}

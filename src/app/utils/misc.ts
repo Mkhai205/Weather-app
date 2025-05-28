@@ -62,3 +62,52 @@ export const uvIndexCategory = (uvIndex: number) => {
         };
     }
 }
+
+export const feelsLikeDescription = (
+    feelsLike: number,
+    temperatureMax: number,
+    temperatureMin: number
+) => {
+    const temperatureAverage = (temperatureMax + temperatureMin) / 2;
+    if (feelsLike < temperatureAverage - 5) {
+        return "Feels significantly colder than actual temperature";
+    } else if (feelsLike > temperatureAverage + 5 && feelsLike < temperatureAverage + 5) {
+        return "Feels close to the actual temperature";
+    } else if (feelsLike > temperatureAverage + 5) {
+        return "Feels significantly warmer than actual temperature";
+    } else {
+        return "Feels like the actual temperature";
+    }
+};
+
+export const humidityDescription = (humidity: number) => {
+    if (humidity < 0) {
+        return "Unavailable: Humidity data not available.";
+    }
+
+    if (humidity < 30) {
+        return "Dry: May cause dry skin and irritation.";
+    } else if (humidity < 60) {
+        return "Comfortable: Ideal for health and comfort.";
+    } else if (humidity < 80) {
+        return "Moderate: May feel a bit sticky, but generally comfortable.";
+    } else if (humidity <= 100) {
+        return "High: Can cause discomfort, potential for mold growth.";
+    }
+}
+
+export const visibilityDescription = (visibility: number) => {
+    if (visibility < 0) {
+        return "Unavailable: Visibility data is not provided.";
+    }
+
+    if (visibility <= 2) {
+        return "Poor: Restricted and unclear visibility.";
+    } else if (visibility <= 5) {
+        return "Moderate: Some limitation in visibility.";
+    } else if (visibility <= 8) {
+        return "Good: Easily navigable visibility.";
+    } else {
+        return "Excellent: Clear visibility.";
+    }
+}
