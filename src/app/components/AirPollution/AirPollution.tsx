@@ -17,9 +17,11 @@ function AirPollution() {
         airQuality.list.length === 0 ||
         !airQuality.list[0].main
     ) {
+
+        
         return <Skeleton className="h-[12rem] w-full col-span-full md:col-span-2" />;
     }
-
+    
     const airQualityIndex = airQuality.list[0].main.aqi * 10;
     const airQualityDescriptionText = airQualityDescription(airQualityIndex || 1000);
 

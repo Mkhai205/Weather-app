@@ -1,8 +1,10 @@
 import AirPollution from "./components/AirPollution/AirPollution";
 import DailyForecast from "./components/DailyForecast/DailyForecast";
 import Navbar from "./components/Navbar";
+import Population from "./components/Population/Population";
 import Sunset from "./components/Sunset/Sunset";
 import Temperature from "./components/Temperature/Temperature";
+import UvIndex from "./components/UvIndev/UvIndex";
 import Wind from "./components/Wind/Wind";
 
 export default function Home() {
@@ -19,6 +21,8 @@ export default function Home() {
                         <Sunset />
                         <Wind />
                         <DailyForecast />
+                        <UvIndex />
+                        <Population />
                     </div>
                 </div>
             </div>
