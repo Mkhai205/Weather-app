@@ -72,7 +72,7 @@ function DailyForecast() {
     };
     return (
         <div
-            className="w-full col-span-full md:col-span-2 p-4 md:p-6 h-[12rem] border rounded-xl 
+            className="w-full col-span-full md:col-span-2 p-4 md:p-6 h-[12rem] border rounded-lg 
                         flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 
                         dark:from-slate-800 dark:to-slate-900 shadow-lg dark:shadow-slate-900/20 
                         hover:shadow-xl transition-all duration-300 border-blue-200/50 dark:border-slate-700/50
@@ -101,11 +101,11 @@ function DailyForecast() {
                                     className="pl-2 md:pl-3 basis-1/3 md:basis-1/4 lg:basis-1/5"
                                 >
                                     <div
-                                        className="flex flex-col items-center text-center p-2 md:p-3 rounded-xl 
+                                        className="flex flex-col items-center text-center p-2 md:p-3 rounded-lg 
                                                   bg-white/70 dark:bg-slate-700/60 backdrop-blur-sm 
                                                   hover:bg-white/90 dark:hover:bg-slate-600/70 
                                                   border border-white/40 dark:border-slate-600/40
-                                                  transition-all duration-200 hover:scale-105 hover:shadow-lg hover:z-20
+                                                  transition-all duration-200 hover:scale-105 hover:shadow-lg
                                                   hover:border-blue-300/60 dark:hover:border-slate-500/60 relative"
                                     >
                                         <p className="text-xs font-semibold text-slate-700 dark:text-slate-200 mb-1">

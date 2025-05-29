@@ -1,4 +1,5 @@
 import {
+    CalendarDays,
     CloudDrizzle,
     CloudRain,
     CloudSun,
@@ -6,6 +7,7 @@ import {
     Command,
     Droplets,
     Eye,
+    Gauge,
     Github,
     Navigation,
     Search,
@@ -37,3 +39,5 @@ export const populationIcon = <Users size={20} />;
 export const feelsLikeIcon = <Thermometer size={20} />;
 export const humidityIcon = <Droplets size={20} />;
 export const visibilityIcon = <Eye size={20} />;
+export const pressureIcon = <Gauge size={20} />;
+export const calendarIcon = <CalendarDays  size={20} />;

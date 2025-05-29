@@ -1,31 +1,31 @@
 "use client";
 import { useGlobalContext } from "@/app/context/globalContext";
-import { humidityIcon } from "@/app/utils/icons";
-import { humidityDescription } from "@/app/utils/misc";
+import { pressureIcon } from "@/app/utils/icons";
+import { pressureDescription } from "@/app/utils/misc";
 import { Skeleton } from "@/components/ui/skeleton";
 import React from "react";
 
-function Humidity() {
+function Pressure() {
     const { forecast } = useGlobalContext();
 
-    if (!forecast || !forecast?.main || !forecast?.main?.humidity) {
+    if (!forecast || !forecast?.main || !forecast?.main?.pressure) {
         return <Skeleton className="h-[12rem] w-full" />;
     }
 
-    const { humidity } = forecast?.main;
+    const { pressure } = forecast?.main;
 
     return (
         <div
             className="feelsLike p-4 h-[12rem] border rounded-lg
                         flex flex-col justify-between gap-4 dark:bg-dark-grey shadow-sm dark:shadow-none"
         >
-            <h2 className=" flex gap-2 font-medium">{humidityIcon} Humidity</h2>
-            <p className="text-2xl text-center">{humidity}%</p>
+            <h2 className=" flex gap-2 font-medium">{pressureIcon} Humidity</h2>
+            <p className="text-2xl text-center">{pressure} hPa</p>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-                {humidityDescription(humidity)}
+                {pressureDescription(pressure)}
             </p>
         </div>
     );
 }
 
-export default Humidity;
+export default Pressure;

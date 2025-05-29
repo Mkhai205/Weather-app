@@ -8,6 +8,10 @@ export const unixToTime = (unixTimestamp: number, timezone: number): string => {
     return moment.unix(unixTimestamp).utcOffset(timezone / 60).format("HH:mm");
 }
 
+export const unixToDay = (unixTimestamp: number, timezone: number): string => {
+    return moment.unix(unixTimestamp).utcOffset(timezone / 60).format("dddd");
+}
+
 export const airQualityDescription = (aqi: number): string => {
     switch (true) {
         case aqi >= 0 && aqi <= 20:
@@ -109,5 +113,21 @@ export const visibilityDescription = (visibility: number) => {
         return "Good: Easily navigable visibility.";
     } else {
         return "Excellent: Clear visibility.";
+    }
+}
+
+export const pressureDescription = (pressure: number) => {
+    if (pressure < 0) {
+        return "Unavailable: Pressure data is not available.";
+    }
+
+    if (pressure < 1000) {
+        return "Low pressure, indicating stormy weather.";
+    } else if (pressure >= 1000 && pressure < 1020) {
+        return "Normal pressure, indicating stable weather.";
+    } else if (pressure >= 1020 && pressure < 1030) {
+        return "High pressure, indicating fair weather.";
+    } else {
+        return "Very high pressure, indicating clear skies.";
     }
 }
