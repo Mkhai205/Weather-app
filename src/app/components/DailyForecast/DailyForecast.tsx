@@ -27,15 +27,15 @@ function DailyForecast() {
     if (!fiveDayForecast || !list || list.length === 0) {
         return <Skeleton className="h-[12rem] w-full col-span-full md:col-span-2" />;
     }
-
     const dailyForecast = list.map(
         (item: { dt: number; main: { temp: number }; weather: [{ main: string }] }) => {
-            const date = new Date(item.dt * 1000);
-            const day = date.toLocaleDateString("en-GB", {
+            const date = new Date(item.dt * 1000); // Use current language locale for date formatting
+            const currentLocale = "en-GB";
+            const day = date.toLocaleDateString(currentLocale, {
                 day: "2-digit",
                 month: "2-digit",
             });
-            const hour = date.toLocaleTimeString("en-GB", {
+            const hour = date.toLocaleTimeString(currentLocale, {
                 hour: "2-digit",
                 minute: "2-digit",
                 hour12: false,

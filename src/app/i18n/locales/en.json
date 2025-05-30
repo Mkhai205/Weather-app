@@ -1,0 +1,97 @@
+{
+    "navbar": {
+        "sourceCode": "Source Code",
+        "search": "Search for places...",
+        "theme": "Theme",
+        "language": "Language"
+    },
+    "weather": {
+        "temperature": "Temperature",
+        "feelsLike": "Feels Like",
+        "humidity": "Humidity",
+        "visibility": "Visibility",
+        "pressure": "Pressure",
+        "wind": "Wind",
+        "windSpeed": "Wind Speed",
+        "windDirection": "Wind Direction",
+        "uvIndex": "UV Index",
+        "airQuality": "Air Quality",
+        "sunset": "Sunset",
+        "sunrise": "Sunrise",
+        "population": "Population",
+        "dailyForecast": "Daily Forecast for the next 5 days",
+        "fiveDayForecast": "5-Day Forecast for",
+        "today": "Today",
+        "tomorrow": "Tomorrow",
+        "low": "Low",
+        "high": "High",
+        "people": "People"
+    },
+    "airQuality": {
+        "good": "Good",
+        "fair": "Fair",
+        "moderate": "Moderate",
+        "poor": "Poor",
+        "veryPoor": "Very Poor",
+        "unknown": "Unknown"
+    },
+    "uvIndex": {
+        "low": "Low",
+        "moderate": "Moderate",
+        "high": "High",
+        "veryHigh": "Very High",
+        "extreme": "Extreme",
+        "lowDesc": "No protection required.",
+        "moderateDesc": "Protection required, especially for children.",
+        "highDesc": "Protection required, avoid sun exposure.",
+        "veryHighDesc": "Extra protection required, avoid sun exposure.",
+        "extremeDesc": "Take all precautions, avoid sun exposure."
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "Error loading data",
+        "retry": "Retry",
+        "suggestions": "Suggestions",
+        "noAvailableData": "No available data!",
+        "airQualityIs": "Air quality is ",
+        "population": "Latest UN population data for",
+        "topcities": "Top Large Cities"
+    },
+    "languages": {
+        "en": "English",
+        "vi": "Tiếng Việt"
+    },
+    "theme": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+    },
+    "feelsLike": {
+        "colder": "Feels significantly colder than actual temperature",
+        "close": "Feels close to the actual temperature",
+        "warmer": "Feels significantly warmer than actual temperature",
+        "same": "Feels like the actual temperature"
+    },
+    "humidity": {
+        "unavailable": "Unavailable: Humidity data not available.",
+        "dry": "Dry: May cause dry skin and irritation.",
+        "comfortable": "Comfortable: Ideal for health and comfort.",
+        "moderate": "Moderate: May feel a bit sticky, but generally comfortable.",
+        "high": "High: Can cause discomfort, potential for mold growth.",
+        "unknown": "Unknown humidity level."
+    },
+    "visibility": {
+        "unavailable": "Unavailable: Visibility data is not provided.",
+        "poor": "Poor: Restricted and unclear visibility.",
+        "moderate": "Moderate: Some limitation in visibility.",
+        "good": "Good: Easily navigable visibility.",
+        "excellent": "Excellent: Clear visibility."
+    },
+    "pressure": {
+        "unavailable": "Unavailable: Pressure data is not available.",
+        "low": "Low pressure, indicating stormy weather.",
+        "normal": "Normal pressure, indicating stable weather.",
+        "high": "High pressure, indicating fair weather.",
+        "veryHigh": "Very high pressure, indicating clear skies."
+    }
+}

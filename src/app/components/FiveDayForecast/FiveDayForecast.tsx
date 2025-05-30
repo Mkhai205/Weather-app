@@ -3,9 +3,11 @@ import { useGlobalContext } from "@/app/context/globalContext";
 import { calendarIcon } from "@/app/utils/icons";
 import { kelvinToCelsius, unixToDay } from "@/app/utils/misc";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTranslation } from "react-i18next";
 
 function FiveDayForecast() {
     const { fiveDayForecast } = useGlobalContext();
+    const { t } = useTranslation();
 
     const { city, list } = fiveDayForecast;
 
@@ -48,11 +50,12 @@ function FiveDayForecast() {
                     dark:bg-dark-grey shadow-sm dark:shadow-none"
         >
             <div className="flex flex-col gap-2">
+                {" "}
                 <h2 className="flex items-center gap-2 font-medium text-lg">
-                    {calendarIcon} 5-Day Forecast for {city?.name}
+                    {calendarIcon} {t("weather.fiveDayForecast")} {city?.name}
                 </h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Daily weather forecast for the next 5 days
+                    {t("weather.dailyForecast")}
                 </p>
             </div>
             <div className="flex flex-col justify-between gap-4">
@@ -61,12 +64,11 @@ function FiveDayForecast() {
                         key={index}
                         className="flex flex-col justify-evenly p-2 border-b-2 dark:bg-dark-grey shadow-sm dark:shadow-none"
                     >
-                        <p className="text-xl min-w-[3.5rem]">{day.day}</p>
+                        <p className="text-xl min-w-[3.5rem]">{day.day}</p>{" "}
                         <p className="text-sm flex justify-between">
-                            <span>(low)</span>
-                            <span>(high)</span>
+                            <span>({t("weather.low")})</span>
+                            <span>({t("weather.high")})</span>
                         </p>
-
                         <div className="flex flex-1 items-center justify-between gap-2">
                             <p className="font-bold text-blue-400">{day.minTemperature}°</p>
                             <div className="temperature flex flex-1 w-full h-2 rounded-lg"></div>

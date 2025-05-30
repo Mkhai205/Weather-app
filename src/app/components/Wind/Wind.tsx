@@ -3,9 +3,11 @@ import { useGlobalContext } from "@/app/context/globalContext";
 import { windIcon } from "@/app/utils/icons";
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 function Wind() {
     const { forecast } = useGlobalContext();
+    const { t } = useTranslation();
 
     const windSpeed = forecast?.wind?.speed || 0;
     const windDirection = forecast?.wind?.deg || 0;
@@ -15,7 +17,9 @@ function Wind() {
     }
     return (
         <div className="p-4 h-[12rem] border rounded-lg flex flex-col gap-3 dark:bg-dark-grey shadow-sm dark:shadow-none">
-            <h2 className="flex items-center gap-2 font-medium">{windIcon} Wind</h2>
+            <h2 className="flex items-center gap-2 font-medium">
+                {windIcon} {t("weather.wind")}
+            </h2>
 
             <div className="compass relative flex items-center justify-center flex-1">
                 <div className="image relative">

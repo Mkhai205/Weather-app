@@ -1,5 +1,15 @@
 "use client";
-import { useGlobalContext, useGlobalContextUpdate } from "@/app/context/globalContext";
+import { useGlobalContext, useGlob                    <DialogDescription>
+                        {t("navbar.search")}
+                    </DialogDescription>
+                    <Command className="rounded-lg border shadow-md">
+                        <CommandInput
+                            value={searchInput}
+                            onChangeCapture={handleInput}
+                            placeholder={t("navbar.search")}
+                        />
+                        <ul className="px-3 pb-2">
+                            <p className="p-2 text-sm text-muted-foreground">{t("common.suggestions")}</p>date } from "@/app/context/globalContext";
 import { commandIcon, searchIcon } from "@/app/utils/icons";
 import { Button } from "@/components/ui/button";
 import { Command, CommandInput } from "@/components/ui/command";
@@ -32,8 +42,7 @@ function SearchDialog() {
                         variant="outline"
                         className="border inline-flex items-center justify-center text-sm font-medium 
                                 hover:dark:bg-[#131313] hover:bg-slate-100 ease-in-out duration-200"
-                    >
-                        {searchIcon}
+                    >                        {searchIcon}
                         <p className="text-sm text-muted-foreground overflow-hidden whitespace-nowrap">
                             {t("navbar.search")}
                         </p>
@@ -48,17 +57,16 @@ function SearchDialog() {
                 </DialogTrigger>
                 <DialogContent className="p-0">
                     <DialogTitle className="sr-only">Search</DialogTitle>
-                    <DialogDescription className="sr-only">{t("navbar.search")}</DialogDescription>
-                    <Command className="rounded-lg border shadow-md">
-                        <CommandInput
+                    <DialogDescription className="sr-only">
+                        Search for weather information and locations
+                    </DialogDescription>
+                    <Command className="rounded-lg border shadow-md">                        <CommandInput
                             value={searchInput}
                             onChangeCapture={handleInput}
                             placeholder={t("navbar.search")}
                         />
                         <ul className="px-3 pb-2">
-                            <p className="p-2 text-sm text-muted-foreground">
-                                {t("common.suggestions")}
-                            </p>
+                            <p className="p-2 text-sm text-muted-foreground">Suggestions</p>
 
                             {geoCodedList?.length > 0 ? (
                                 geoCodedList.map(
@@ -92,8 +100,7 @@ function SearchDialog() {
                                             </li>
                                         );
                                     }
-                                )
-                            ) : (
+                                )                            ) : (
                                 <p className="p-4 rounded-md text-md font-medium">
                                     {t("common.noAvailableData")}
                                 </p>

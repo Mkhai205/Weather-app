@@ -4,9 +4,11 @@ import { uvIndexIcon } from "@/app/utils/icons";
 import { uvIndexCategory } from "@/app/utils/misc";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTranslation } from "react-i18next";
 
 function UvIndex() {
     const { uvIndex } = useGlobalContext();
+    const { t } = useTranslation();
 
     if (!uvIndex || !uvIndex?.daily) {
         return <Skeleton className="h-[12rem] w-full" />;
@@ -21,8 +23,10 @@ function UvIndex() {
             className="uv p-4 h-[12rem] border rounded-lg 
                         flex flex-col gap-4 dark:bg-dark-grey shadow-sm dark:shadow-none"
         >
-            <h2 className=" flex gap-2 font-medium">{uvIndexIcon} Uv Index</h2>
-            <div className="flex flex-col gap-4">
+            <h2 className=" flex gap-2 font-medium">
+                {uvIndexIcon} {t("weather.uvIndex")}
+            </h2>
+            <div className="flex flex-col justify-between h-full">
                 <p className="flex items-center gap-2 text-2xl">
                     {uvIndexMax}
                     <span className="text-sm text-gray-500 dark:text-gray-400">

@@ -1,0 +1,97 @@
+{
+    "navbar": {
+        "sourceCode": "Mã nguồn",
+        "search": "Tìm kiếm địa điểm...",
+        "theme": "Chủ đề",
+        "language": "Ngôn ngữ"
+    },
+    "weather": {
+        "today": "Hôm nay",
+        "tomorrow": "Ngày mai",
+        "feelsLike": "Cảm giác như",
+        "humidity": "Độ ẩm",
+        "pressure": "Áp suất",
+        "visibility": "Tầm nhìn",
+        "wind": "Gió",
+        "windSpeed": "Tốc độ gió",
+        "windDirection": "Hướng gió",
+        "uvIndex": "Chỉ số UV",
+        "airQuality": "Chất lượng không khí",
+        "sunrise": "Mặt trời mọc",
+        "sunset": "Mặt trời lặn",
+        "population": "Dân số",
+        "dailyForecast": "Dự báo hàng ngày cho 5 ngày tới",
+        "fiveDayForecast": "Dự báo 5 ngày cho",
+        "temperature": "Nhiệt độ",
+        "low": "Thấp",
+        "high": "Cao",
+        "people": "Người"
+    },
+    "airQuality": {
+        "good": "Tốt",
+        "fair": "Khá",
+        "moderate": "Trung bình",
+        "poor": "Kém",
+        "veryPoor": "Rất kém",
+        "unknown": "Không xác định"
+    },
+    "uvIndex": {
+        "low": "Thấp",
+        "moderate": "Trung bình",
+        "high": "Cao",
+        "veryHigh": "Rất cao",
+        "extreme": "Cực cao",
+        "lowDesc": "Không cần bảo vệ.",
+        "moderateDesc": "Cần bảo vệ, đặc biệt là trẻ em.",
+        "highDesc": "Cần bảo vệ, tránh tiếp xúc với ánh nắng mặt trời.",
+        "veryHighDesc": "Cần bảo vệ thêm, tránh tiếp xúc với ánh nắng mặt trời.",
+        "extremeDesc": "Thực hiện tất cả các biện pháp phòng ngừa, tránh tiếp xúc với ánh nắng mặt trời."
+    },
+    "common": {
+        "loading": "Đang tải...",
+        "error": "Lỗi khi tải dữ liệu",
+        "retry": "Thử lại",
+        "suggestions": "Gợi ý",
+        "noAvailableData": "Không có dữ liệu!",
+        "airQualityIs": "Chất lượng không khí ",
+        "population": "Dữ liệu dân số mới nhất của Liên Hợp Quốc cho",
+        "topcities": "Các thành phố lớn"
+    },
+    "languages": {
+        "en": "English",
+        "vi": "Tiếng Việt"
+    },
+    "theme": {
+        "light": "Sáng",
+        "dark": "Tối",
+        "system": "Hệ thống"
+    },
+    "feelsLike": {
+        "colder": "Cảm thấy lạnh hơn nhiều so với nhiệt độ thực tế",
+        "close": "Cảm thấy gần với nhiệt độ thực tế",
+        "warmer": "Cảm thấy ấm hơn nhiều so với nhiệt độ thực tế",
+        "same": "Cảm thấy như nhiệt độ thực tế"
+    },
+    "humidity": {
+        "unavailable": "Không có sẵn: Dữ liệu độ ẩm không có sẵn.",
+        "dry": "Khô: Có thể gây khô da và kích ứng.",
+        "comfortable": "Thoải mái: Lý tưởng cho sức khỏe và sự thoải mái.",
+        "moderate": "Trung bình: Có thể hơi dính, nhưng nhìn chung là thoải mái.",
+        "high": "Cao: Có thể gây khó chịu, tiềm ẩn nguy cơ phát triển nấm mốc.",
+        "unknown": "Mức độ ẩm không xác định."
+    },
+    "visibility": {
+        "unavailable": "Không có sẵn: Dữ liệu tầm nhìn không được cung cấp.",
+        "poor": "Kém: Tầm nhìn bị hạn chế và không rõ ràng.",
+        "moderate": "Trung bình: Có một số hạn chế về tầm nhìn.",
+        "good": "Tốt: Tầm nhìn dễ dàng di chuyển.",
+        "excellent": "Tuyệt vời: Tầm nhìn rõ ràng."
+    },
+    "pressure": {
+        "unavailable": "Không có sẵn: Dữ liệu áp suất không có sẵn.",
+        "low": "Áp suất thấp, cho thấy thời tiết có bão.",
+        "normal": "Áp suất bình thường, cho thấy thời tiết ổn định.",
+        "high": "Áp suất cao, cho thấy thời tiết đẹp.",
+        "veryHigh": "Áp suất rất cao, cho thấy bầu trời quang đãng."
+    }
+}

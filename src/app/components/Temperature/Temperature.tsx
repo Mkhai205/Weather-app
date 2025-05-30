@@ -13,20 +13,27 @@ import { kelvinToCelsius } from "@/app/utils/misc";
 import { Skeleton } from "@/components/ui/skeleton";
 import moment from "moment";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/app/i18n";
 
 function Temperature() {
     // State
     const [localTime, setLocalTime] = useState<string>("");
     const [currentDay, setCurrentDay] = useState<string>("");
-
+    const { t } = useTranslation();
     const { forecast } = useGlobalContext();
 
-    const { main, timezone, name, weather } = forecast;
+    const main = forecast?.main;
+    const timezone = forecast?.timezone || 0;
+    const name = forecast?.name;
+    const weather = forecast?.weather;
 
     // Live time update
     useEffect(() => {
         // update time every second
         const interval = setInterval(() => {
+            // Set the locale based on the current language
+            moment.locale(i18n.language);
             const localMoment = moment().utcOffset(timezone / 60);
             // custom format: 24 hours format
             const formattedTime = localMoment.format("HH:mm:ss");
@@ -89,10 +96,14 @@ function Temperature() {
                 <div>
                     <span>{getIcon(weatherMain)}</span>
                     <p className="pt-2 capitalize text-lg font-medium">{weatherDescription}</p>
-                </div>
+                </div>{" "}
                 <p className="flex items-center gap-2 pt-2 text-sm text-muted-foreground">
-                    <span>Low: {minTemperature}°</span>
-                    <span>High: {maxTemperature}°</span>
+                    <span>
+                        {t("weather.low")}: {minTemperature}°
+                    </span>
+                    <span>
+                        {t("weather.high")}: {maxTemperature}°
+                    </span>
                 </p>
             </div>
         </div>

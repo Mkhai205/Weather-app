@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "./providers/ThemeProvider";
+import { I18nProvider } from "./providers/I18nProvider";
 // import { GlobalContextProvider } from "./context/globalContext";
 
 const geistSans = localFont({
@@ -34,7 +35,7 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    {children}
+                    <I18nProvider>{children}</I18nProvider>
                 </ThemeProvider>
             </body>
         </html>
