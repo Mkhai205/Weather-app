@@ -4,8 +4,10 @@ import { NextRequest } from "next/server";
 export async function GET(req: NextRequest) {
     try {
         const apiKey = process.env.OPENWEATHERMAP_API_KEY;
-        const lat = 21.02818;
-        const lon = 105.8333;
+        const searchParams = req.nextUrl.searchParams;
+
+        const lat = searchParams.get("lat") || "21.02818";
+        const lon = searchParams.get("lon") || "105.8333";
 
         const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 

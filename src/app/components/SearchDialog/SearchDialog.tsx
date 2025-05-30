@@ -1,4 +1,5 @@
 "use client";
+import { useGlobalContext, useGlobalContextUpdate } from "@/app/context/globalContext";
 import { commandIcon, searchIcon } from "@/app/utils/icons";
 import { Button } from "@/components/ui/button";
 import { Command, CommandInput } from "@/components/ui/command";
@@ -9,22 +10,35 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import React from "react";
+import { useState } from "react";
 
 function SearchDialog() {
+    const { geoCodedList, searchInput, handleInput } = useGlobalContext();
+    const { setActiveCityCoords } = useGlobalContextUpdate();
+    const [hoveredIndex, setHoveredIndex] = useState<number>();
+    const [open, setOpen] = useState(false);
+
+    const getClickedCoorrds = (lat: number, lon: number) => {
+        setActiveCityCoords({ lat, lon });
+        setOpen(false);
+    };
     return (
         <div className="search-btn">
-            <Dialog>
+            <Dialog open={open} onOpenChange={setOpen}>
                 <DialogTrigger asChild>
                     <Button
                         variant="outline"
-                        className="border inline-flex items-center justify-center text-sm font-medium hover:dark:bg-[#131313] hover:bg-slate-100 ease-in-out duration-200"
+                        className="border inline-flex items-center justify-center text-sm font-medium 
+                                hover:dark:bg-[#131313] hover:bg-slate-100 ease-in-out duration-200"
                     >
                         {searchIcon}
                         <p className="text-sm text-muted-foreground overflow-hidden whitespace-nowrap">
                             Search Here...
                         </p>
-                        <div className="command dark:bg-[#262626] bg-slate-200 py-0.5 px-2 flex items-center justify-between gap-2 rounded-md ml-4 sm:ml-8 md:ml-16 lg:ml-24">
+                        <div
+                            className="command dark:bg-[#262626] bg-slate-200 py-0.5 px-2 flex items-center 
+                                        justify-between gap-2 rounded-md ml-4 sm:ml-8 md:ml-16 lg:ml-24"
+                        >
                             {commandIcon}
                             <span className="text-[9px]">F</span>
                         </div>
@@ -36,9 +50,52 @@ function SearchDialog() {
                         Search for weather information and locations
                     </DialogDescription>
                     <Command className="rounded-lg border shadow-md">
-                        <CommandInput placeholder="Type a command or search..." />
+                        <CommandInput
+                            value={searchInput}
+                            onChangeCapture={handleInput}
+                            placeholder="Type a command or search..."
+                        />
                         <ul className="px-3 pb-2">
                             <p className="p-2 text-sm text-muted-foreground">Suggestions</p>
+
+                            {geoCodedList?.length > 0 ? (
+                                geoCodedList.map(
+                                    (
+                                        item: {
+                                            name: string;
+                                            country: string;
+                                            state: string;
+                                            lat: number;
+                                            lon: number;
+                                        },
+                                        index: number
+                                    ) => {
+                                        const { country, state, name } = item;
+                                        return (
+                                            <li
+                                                key={index}
+                                                onMouseEnter={() => setHoveredIndex(index)}
+                                                onClick={() => {
+                                                    getClickedCoorrds(item.lat, item.lon);
+                                                }}
+                                                className={`flex items-center gap-2 cursor-pointer p-4 rounded-md ${
+                                                    hoveredIndex === index ? "bg-accent" : ""
+                                                }`}
+                                            >
+                                                <p className="text-sm font-medium">{name}</p>
+                                                <p className="text-xs text-muted-foreground">
+                                                    {state ? `${state}, ` : ""}
+                                                    {country}
+                                                </p>
+                                            </li>
+                                        );
+                                    }
+                                )
+                            ) : (
+                                <p className="p-4 rounded-md text-md font-medium">
+                                    No available data!
+                                </p>
+                            )}
                         </ul>
                     </Command>
                 </DialogContent>

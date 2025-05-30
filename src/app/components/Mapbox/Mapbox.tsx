@@ -32,7 +32,6 @@ function Mapbox() {
             }),
         []
     );
-
     const TileLayer = useMemo(
         () =>
             dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), {
@@ -46,17 +45,17 @@ function Mapbox() {
     const acviveCityCoords = forecast?.coord;
 
     if (!acviveCityCoords) {
-        return <Skeleton className="h-[24rem] w-full rounded-lg" />;
+        return <Skeleton className="h-[26rem] w-full rounded-lg lg:w-3/4 lg:flex-[3]" />;
     }
 
     return (
-        <div className="flex-1 h-[24rem] basis-[50%] border col-span-3 rounded-lg">
+        <div className="w-full h-[26rem] lg:w-3/4 lg:flex-[3]">
             <MapContainer
                 center={acviveCityCoords}
-                zoom={13}
+                zoom={10}
                 scrollWheelZoom={true}
-                style={{ height: "calc(100% - 2rem)", width: "calc(100% - 2rem)" }}
-                className="rounded-lg m-4"
+                style={{ height: "100%", width: "100%" }}
+                className="rounded-lg duration-700 transition-all"
             >
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -100,3 +100,32 @@ body {
         rgb(188, 40, 7) 100%
     );
 }
+
+@media screen and (max-width: 581px) {
+    .btn-group {
+        position: fixed;
+        bottom: 2%;
+        right: 1rem;
+        z-index: 1000;
+    }
+
+    .btn-group button {
+        box-shadow: 2px 3px 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
+
+    .search-btn button {
+        width: 100%;
+    }
+
+    .source-code-btn {
+        order: -1;
+    }
+}

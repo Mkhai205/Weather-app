@@ -3,8 +3,10 @@ import { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
     try {
-        const lat = 21.02818;
-        const lon = 105.8333;
+        const searchParams = req.nextUrl.searchParams;
+
+        const lat = searchParams.get("lat") || "21.02818";
+        const lon = searchParams.get("lon") || "105.8333";
 
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=uv_index_max,uv_index_clear_sky_max&timezone=auto&forecast_days=1`;
 

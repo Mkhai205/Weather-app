@@ -44,7 +44,7 @@ function FiveDayForecast() {
 
     return (
         <div
-            className="p-6 border h-full rounded-lg flex flex-col gap-4 bg-white
+            className="p-6 border rounded-lg flex flex-col gap-4 bg-white
                     dark:bg-dark-grey shadow-sm dark:shadow-none"
         >
             <div className="flex flex-col gap-2">
@@ -59,7 +59,7 @@ function FiveDayForecast() {
                 {daylyForecastData.map((day, index) => (
                     <div
                         key={index}
-                        className="flex flex-col justify-evenly p-4 border-b-2 dark:bg-dark-grey shadow-sm dark:shadow-none"
+                        className="flex flex-col justify-evenly p-2 border-b-2 dark:bg-dark-grey shadow-sm dark:shadow-none"
                     >
                         <p className="text-xl min-w-[3.5rem]">{day.day}</p>
                         <p className="text-sm flex justify-between">
@@ -68,9 +68,9 @@ function FiveDayForecast() {
                         </p>
 
                         <div className="flex flex-1 items-center justify-between gap-2">
-                            <p className="font-bold">{day.minTemperature}°</p>
+                            <p className="font-bold text-blue-400">{day.minTemperature}°</p>
                             <div className="temperature flex flex-1 w-full h-2 rounded-lg"></div>
-                            <p className="font-bold">{day.maxTemperature}°</p>
+                            <p className="font-bold text-red-400">{day.maxTemperature}°</p>
                         </div>
                     </div>
                 ))}

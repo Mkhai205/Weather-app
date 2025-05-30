@@ -21,7 +21,7 @@ function Navbar() {
                     <Button
                         className="source-code flex items-center gap-2"
                         onClick={() => {
-                            router.push("https://github.com");
+                            router.push("https://github.com/Mkhai205/Weather-app");
                         }}
                     >
                         {github} Source Code
