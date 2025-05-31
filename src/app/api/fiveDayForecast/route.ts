@@ -8,8 +8,9 @@ export async function GET(req: NextRequest) {
 
         const lat = searchParams.get("lat") || "21.02818";
         const lon = searchParams.get("lon") || "105.8333";
+        const lanuage = searchParams.get("lang") || "en";
 
-        const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+        const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=${lanuage}`;
 
         const res = await axios.get(url);
 

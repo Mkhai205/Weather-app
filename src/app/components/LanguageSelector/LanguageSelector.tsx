@@ -10,19 +10,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
+import { languages } from "@/app/utils/misc";
+import { useGlobalContextUpdate } from "@/app/context/globalContext";
 
-const languages = [
-    { code: "en", name: "English", flag: "🇺🇸" },
-    { code: "vi", name: "Tiếng Việt", flag: "🇻🇳" },
-];
+
 
 export default function LanguageSelector() {
     const { i18n } = useTranslation();
+    const { setLanguage } = useGlobalContextUpdate();
 
     const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0];
 
     const handleLanguageChange = (languageCode: string) => {
         i18n.changeLanguage(languageCode);
+        setLanguage(languageCode);
     };
 
     return (

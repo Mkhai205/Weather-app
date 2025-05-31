@@ -1,4 +1,6 @@
 import moment from "moment";
+import "moment/locale/vi";
+import "moment/locale/en-gb";
 import i18n from "../i18n";
 
 // Helper function to safely translate text
@@ -15,16 +17,25 @@ export const kelvinToCelsius = (kelvin: number): number => {
     return Math.round(kelvin - 273.15);
 }
 
+export const languages = [
+    { code: "en", name: "English", flag: "🇺🇸" },
+    { code: "vi", name: "Tiếng Việt", flag: "🇻🇳" },
+];
+
 export const unixToTime = (unixTimestamp: number, timezone: number): string => {
     // Set moment locale based on current language
-    moment.locale(i18n.language);
+    moment.locale(i18n.language || "en");
     return moment.unix(unixTimestamp).utcOffset(timezone / 60).format("HH:mm");
 }
 
+
 export const unixToDay = (unixTimestamp: number, timezone: number): string => {
     // Set moment locale based on current language
-    moment.locale(i18n.language);
-    return moment.unix(unixTimestamp).utcOffset(timezone / 60).format("dddd");
+    moment.locale(i18n.language || "en");
+    const day = moment.unix(unixTimestamp).utcOffset(timezone / 60).format("dddd");
+    
+    // Capitalize first letter of each word
+    return day.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 
 export const airQualityDescription = (aqi: number): string => {

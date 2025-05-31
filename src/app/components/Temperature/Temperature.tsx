@@ -38,7 +38,11 @@ function Temperature() {
             // custom format: 24 hours format
             const formattedTime = localMoment.format("HH:mm:ss");
             // custom format: day of the week
-            const formattedDay = localMoment.format("dddd");
+            const formattedDay = localMoment
+                .format("dddd")
+                .split(" ")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
 
             setLocalTime(formattedTime);
             setCurrentDay(formattedDay);
@@ -57,6 +61,9 @@ function Temperature() {
     }
 
     const { main: weatherMain, description: weatherDescription } = weather[0];
+
+    console.log("🚀 ~ Temperature.tsx:65 ~ Temperature ~ weatherMain:", weatherMain, weatherDescription);
+
 
     const getIcon = (weatherMain: string) => {
         switch (weatherMain) {

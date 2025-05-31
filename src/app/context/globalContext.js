@@ -8,6 +8,7 @@ const GlobalContext = createContext();
 const GlobalContestUpdate = createContext();
 
 export const GlobalContextProvider = ({ children }) => {
+    const [language, setLanguage] = useState("en");
     const [geoCodedList, setGeoCodedList] = useState(defaultStates);
     const [searchInput, setSearchInput] = useState("");
     const [activeCityCoords, setActiveCityCoords] = useState({ lat: 21.0285, lon: 105.804 });
@@ -17,9 +18,9 @@ export const GlobalContextProvider = ({ children }) => {
     const [uvIndex, setUvIndex] = useState({});
 
     // Fetch weather forecast data
-    const fetchForecast = async (lat, lon) => {
+    const fetchForecast = async (lat, lon, language) => {
         try {
-            const res = await axios.get(`api/weather?lat=${lat}&lon=${lon}`);
+            const res = await axios.get(`api/weather?lat=${lat}&lon=${lon}&lang=${language}`);
 
             if (res && res.data) {
                 setForecast(res.data);
@@ -30,9 +31,9 @@ export const GlobalContextProvider = ({ children }) => {
     };
 
     // Fetch air quality data
-    const fetchAirQuality = async (lat, lon) => {
+    const fetchAirQuality = async (lat, lon, language) => {
         try {
-            const res = await axios.get(`api/airPollution?lat=${lat}&lon=${lon}`);
+            const res = await axios.get(`api/airPollution?lat=${lat}&lon=${lon}&lang=${language}`);
 
             if (res && res.data) {
                 setAirQuality(res.data);
@@ -43,9 +44,11 @@ export const GlobalContextProvider = ({ children }) => {
     };
 
     // Fetch five-day forecast data
-    const fetchFiveDayForecast = async (lat, lon) => {
+    const fetchFiveDayForecast = async (lat, lon, language) => {
         try {
-            const res = await axios.get(`api/fiveDayForecast?lat=${lat}&lon=${lon}`);
+            const res = await axios.get(
+                `api/fiveDayForecast?lat=${lat}&lon=${lon}&lang=${language}`
+            );
 
             if (res && res.data) {
                 setFiveDayForecast(res.data);
@@ -56,9 +59,9 @@ export const GlobalContextProvider = ({ children }) => {
     };
 
     // Fetch UV index data
-    const fetchUvIndex = async (lat, lon) => {
+    const fetchUvIndex = async (lat, lon, language) => {
         try {
-            const res = await axios.get(`api/uv?lat=${lat}&lon=${lon}`);
+            const res = await axios.get(`api/uv?lat=${lat}&lon=${lon}&lang=${language}`);
 
             if (res && res.data) {
                 setUvIndex(res.data);
@@ -81,11 +84,11 @@ export const GlobalContextProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        fetchForecast(activeCityCoords.lat, activeCityCoords.lon);
-        fetchAirQuality(activeCityCoords.lat, activeCityCoords.lon);
-        fetchFiveDayForecast(activeCityCoords.lat, activeCityCoords.lon);
-        fetchUvIndex(activeCityCoords.lat, activeCityCoords.lon);
-    }, [activeCityCoords]);
+        fetchForecast(activeCityCoords.lat, activeCityCoords.lon, language);
+        fetchAirQuality(activeCityCoords.lat, activeCityCoords.lon, language);
+        fetchFiveDayForecast(activeCityCoords.lat, activeCityCoords.lon, language);
+        fetchUvIndex(activeCityCoords.lat, activeCityCoords.lon, language);
+    }, [activeCityCoords, language]);
 
     // Debounce the search input to avoid too many API calls
     useEffect(() => {
@@ -128,6 +131,7 @@ export const GlobalContextProvider = ({ children }) => {
             <GlobalContestUpdate.Provider
                 value={{
                     setActiveCityCoords,
+                    setLanguage,
                 }}
             >
                 {children}
